@@ -24,9 +24,7 @@
   <title>Cast Hello Text</title>
 </head>
 <body>
-	<video id="vid" width="1280" height="720" autoplay>
-	<source src="http://www.example.com/waterfall-video.mp4" type="video/mp4"/>
-    </video>
+  <div id="remotes"></div>
 
   <cast-media-player></cast-media-player>
   <style>
@@ -109,14 +107,22 @@
         console.log('handleOffer after create rtcPeerConnection');
 		rtcPeerConnection.onaddstream = function onAddStream(ev) {
 	        console.log('rtcPeerConnection onaddstream');
-	        var nativeStream = ev && ev.stream;
-	        vidElement = document.getElementById("vid");
+	        var stream = ev && ev.stream;
+	        
+	        video = document.createElement('video');
+            video.src = URL.createObjectURL(stream);
+            video.play();
+            var parent = document.getElementById('remotes');
+            parent.appendChild(video);
+
+	        
+	        //vidElement = document.getElementById("vid");
 	        //vidElement.setSource
-	        var source = document.createElement('source');
-	        source.setAttribute('src', nativeStream);
+	        //var source = document.createElement('source');
+	        //source.setAttribute('src', nativeStream);
             //source.setAttribute('src', 'http://www.tools4movies.com/trailers/1012/Kill%20Bill%20Vol.3.mp4');            
-            vidElement.appendChild(source);
-            vidElement.play();
+            //vidElement.appendChild(source);
+            //vidElement.play();
 
 		};
 		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerConnection);
