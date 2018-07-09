@@ -24,7 +24,6 @@
   <title>Cast Hello Text</title>
 </head>
 <body>
-	<DIV id="message">Talk to me</DIV>
 	<video width="400" controls>
       <source src="mov_bbb.mp4" type="video/mp4">
       <source src="mov_bbb.ogg" type="video/ogg">
@@ -136,7 +135,7 @@
     // utility function to display the text message in the input field
     function displayText(text) {
       console.log(text);
-      document.getElementById("message").innerHTML=text;
+      //document.getElementById("message").innerHTML=text;
       window.castReceiverManager.setApplicationState(text);
     };
     
