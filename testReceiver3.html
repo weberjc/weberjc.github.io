@@ -111,6 +111,7 @@
 	        
 	        video = document.createElement('video');
             video.src = URL.createObjectURL(stream);
+            console.log('rtcPeerConnection video.src = ', video.src);
             video.play();
             var parent = document.getElementById('remotes');
             parent.appendChild(video);
