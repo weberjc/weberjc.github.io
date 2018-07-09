@@ -22,6 +22,11 @@
   <script>
     console.log('test starting 1');
     cast.framework.CastReceiverContext.getInstance().start();
+    window.onload = function() {
+      console.log('test onload 1');
+      cast.receiver.logger.setLevelValue(0);
+      console.log('test onload 2');      
+    }
     console.log('test starting 2');
     console.log('test starting 3');
     console.log('test starting 4');
