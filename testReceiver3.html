@@ -71,7 +71,7 @@
       try {
         messageObj = JSON.parse(message);
       } catch (err) {
-        console.log('cannot json parse message');
+        console.log('cannot parse json message');
         return;
       }
       if (messageObj.offerSdp) {
@@ -120,7 +120,7 @@
 		    rtcPeerConnection.setLocalDescription(answer);
 		    console.log('handleOffer answer = ', answer);
 
-		    window.messageBus.send(senderId, answer);
+		    window.messageBus.send(senderId, '' + answer);
 		})
 		  	
     }
