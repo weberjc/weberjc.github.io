@@ -82,7 +82,7 @@
     function handleOffer(messageObj, senderId) {
         console.log('handleOffer start');
         const { iceServers, offerSdp }  = messageObj;
-        let sdp = RTCSessionDescription(offerSdp);
+        let sdp = new RTCSessionDescription(offerSdp);
         console.log('handleOffer after RTCSessionDescription');
 
         var configuration = {
