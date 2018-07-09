@@ -120,7 +120,7 @@
 		    rtcPeerConnection.setLocalDescription(answer);
 		    console.log('handleOffer answer = ', answer);
 
-		    window.messageBus.send(senderId, '' + answer);
+		    window.messageBus.send(senderId, JSON.stringify(answer));
 		})
 		  	
     }
