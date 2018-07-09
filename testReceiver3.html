@@ -114,8 +114,8 @@
 	        var source = document.createElement('source');
 	        source.setAttribute('src', nativeStream);
             //source.setAttribute('src', 'http://www.tools4movies.com/trailers/1012/Kill%20Bill%20Vol.3.mp4');            
-            video.appendChild(source);
-            video.play();
+            vidElement.appendChild(source);
+            vidElement.play();
 
 		};
 		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerConnection);
