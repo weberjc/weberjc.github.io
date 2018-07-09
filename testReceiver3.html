@@ -108,6 +108,8 @@
 	        console.log('rtcPeerConnection onaddstream');
 	        var nativeStream = ev && ev.stream;
 		};
+		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerCOnnection);
+		rtcPeerConnection.oniceconnectionstatechange = () => checkState(rtcPeerCOnnection);
 		new Promise((resolve, reject) => {
 		    rtcPeerConnection.setRemoteDescription(sdp, resolve, reject)
 		})
@@ -131,6 +133,11 @@
       document.getElementById("message").innerHTML=text;
       window.castReceiverManager.setApplicationState(text);
     };
+    
+    checkState(pc) {
+        console.log('test pc.signalingState = ', pc.signalingState, ', iceGatheringState = ', pc.iceGatheringState, ', iceConnectionState = ', pc.iceConnectionState);
+         
+    }
 
 
   </script>
