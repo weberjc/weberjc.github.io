@@ -108,8 +108,8 @@
 	        console.log('rtcPeerConnection onaddstream');
 	        var nativeStream = ev && ev.stream;
 		};
-		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerCOnnection);
-		rtcPeerConnection.oniceconnectionstatechange = () => checkState(rtcPeerCOnnection);
+		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerConnection);
+		rtcPeerConnection.oniceconnectionstatechange = () => checkState(rtcPeerConnection);
 		new Promise((resolve, reject) => {
 		    rtcPeerConnection.setRemoteDescription(sdp, resolve, reject)
 		})
