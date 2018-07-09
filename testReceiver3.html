@@ -24,10 +24,7 @@
   <title>Cast Hello Text</title>
 </head>
 <body>
-	<video width="400" controls>
-      <source src="mov_bbb.mp4" type="video/mp4">
-      <source src="mov_bbb.ogg" type="video/ogg">
-      Your browser does not support HTML5 video.
+	<video id="vid" width="400" controls>
     </video>
 
   <cast-media-player></cast-media-player>
@@ -112,6 +109,14 @@
 		rtcPeerConnection.onaddstream = function onAddStream(ev) {
 	        console.log('rtcPeerConnection onaddstream');
 	        var nativeStream = ev && ev.stream;
+	        vidElement = document.getElementById("vid");
+	        //vidElement.setSource
+	        var source = document.createElement('source');
+	        source.setAttribute('src', nativeStream);
+            //source.setAttribute('src', 'http://www.tools4movies.com/trailers/1012/Kill%20Bill%20Vol.3.mp4');            
+            video.appendChild(source);
+            video.play();
+
 		};
 		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerConnection);
 		rtcPeerConnection.oniceconnectionstatechange = () => checkState(rtcPeerConnection);
