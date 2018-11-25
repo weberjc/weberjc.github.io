@@ -108,7 +108,7 @@
         var that = this;
 		//rtcPeerConnection.onaddstream = function onAddStream(ev) {
 	    //    var stream = ev && ev.stream;
-		rtcPeerConnection.onaddtrack = function onAddStream(ev) {
+		rtcPeerConnection.addEventListener('track', function onAddTrack(ev) {
 	        console.log('rtcPeerConnection onaddstream');
 	        var stream = ev && ev.streams && e.streams[0];
 	        
@@ -133,7 +133,7 @@
             //vidElement.appendChild(source);
             //vidElement.play();
 
-		};
+		});
 		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerConnection);
 		rtcPeerConnection.oniceconnectionstatechange = () => checkState(rtcPeerConnection);
 		new Promise((resolve, reject) => {
