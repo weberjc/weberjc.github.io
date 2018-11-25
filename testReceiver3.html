@@ -106,9 +106,12 @@
         const rtcPeerConnection = new window.RTCPeerConnection(configuration, constraints);
         console.log('handleOffer after create rtcPeerConnection');
         var that = this;
-		rtcPeerConnection.onaddstream = function onAddStream(ev) {
+		//rtcPeerConnection.onaddstream = function onAddStream(ev) {
+	    //    var stream = ev && ev.stream;
+		rtcPeerConnection.onaddtrack = function onAddStream(ev) {
 	        console.log('rtcPeerConnection onaddstream');
-	        var stream = ev && ev.stream;
+	        var stream = ev && ev.streams && e.streams[0];
+	        
 	        that.stream = stream;
 	        console.log('rtcPeerConnection onaddstream stream = ', stream);
 	        video = document.createElement('video');
