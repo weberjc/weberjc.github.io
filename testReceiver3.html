@@ -112,16 +112,16 @@
 		// rtcPeerConnection.addEventListener('track', function onAddTrack(ev) {
 	        //console.log('rtcPeerConnection onaddstream');
 	        //var stream = ev && ev.streams && e.streams[0];
-	        
 	        that.stream = stream;
 	        console.log('rtcPeerConnection onaddstream stream = ', stream);
 	        video = document.createElement('video');
             // video.src = URL.createObjectURL(stream);
+            video.autoplay = true;
             video.srcObject = stream;
             // video.src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4';
             console.log('rtcPeerConnection video.src = ', video.src);
             console.log('rtcPeerConnection video.srcObject = ', video.srcObject);
-            video.play();
+            // video.play();
             var parent = document.getElementById('remotes');
             parent.appendChild(video);
 
