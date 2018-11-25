@@ -106,11 +106,12 @@
         const rtcPeerConnection = new window.RTCPeerConnection(configuration, constraints);
         console.log('handleOffer after create rtcPeerConnection');
         var that = this;
-		//rtcPeerConnection.onaddstream = function onAddStream(ev) {
-	    //    var stream = ev && ev.stream;
-		rtcPeerConnection.addEventListener('track', function onAddTrack(ev) {
+		rtcPeerConnection.onaddstream = function onAddStream(ev) {
 	        console.log('rtcPeerConnection onaddstream');
-	        var stream = ev && ev.streams && e.streams[0];
+	        var stream = ev && ev.stream;
+		// rtcPeerConnection.addEventListener('track', function onAddTrack(ev) {
+	        //console.log('rtcPeerConnection onaddstream');
+	        //var stream = ev && ev.streams && e.streams[0];
 	        
 	        that.stream = stream;
 	        console.log('rtcPeerConnection onaddstream stream = ', stream);
