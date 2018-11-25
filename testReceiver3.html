@@ -134,7 +134,7 @@
             //vidElement.appendChild(source);
             //vidElement.play();
 
-		});
+		};
 		rtcPeerConnection.onsignalingstatechange = () => checkState(rtcPeerConnection);
 		rtcPeerConnection.oniceconnectionstatechange = () => checkState(rtcPeerConnection);
 		new Promise((resolve, reject) => {
